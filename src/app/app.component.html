@@ -1,0 +1,25 @@
+
+
+<mat-toolbar color="primary" class="navbar">
+    <div>home</div>
+    <div>
+        <button mat-button>Home</button>
+        <button mat-button>About-us</button>
+        <button mat-button [mat-menu-trigger-for]="serviceMenu">services</button>
+        <button mat-button>login</button>
+    </div>
+</mat-toolbar>
+<mat-drawer-container>
+    <mat-drawer mode="side" [(opened)]="opened">side content</mat-drawer>
+    <mat-drawer-content>
+        <button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+    </mat-drawer-content>
+</mat-drawer-container>
+<mat-menu #serviceMenu   ="matMenu">
+    <button mat-menu-item [mat-menu-trigger-for]="frontEndMenu">Frontend</button>
+    <button mat-menu-item>Backend</button>
+</mat-menu>
+<mat-menu #frontEndMenu   ="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>Reactjs</button>
+</mat-menu>
